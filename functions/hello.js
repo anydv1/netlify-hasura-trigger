@@ -1,7 +1,7 @@
 
 const axios = require('axios');
 const moment=require('moment');
-const rp = require('request-promise')
+const rp = require('request')
 
 
 
