@@ -24,7 +24,7 @@ exports.handler = async(event, context, cb) => {
               "X-Hasura-Role": "admin",
               "x-hasura-admin-secret":"8f70264534ccb260579b8a658601141a"
       },
-      body:{
+      formData:{
         "type": "create_cron_trigger",
         "args": {
            "name": "send_notification",
