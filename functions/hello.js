@@ -65,7 +65,7 @@ exports.handler = async(event, context, cb) => {
     uri: "https://server.internal.multiliving.co.in/v1/query",
     headers: {
             "X-Hasura-Role": "admin",
-            "x-hasura-admin-secret":process.env.HASURA_ADMIN_SECRET
+            "x-hasura-admin-secret":process.env.ADMIN_SECRET
     },
     body:{
       "type": "create_cron_trigger",
