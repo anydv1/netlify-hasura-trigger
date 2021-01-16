@@ -16,7 +16,7 @@ exports.handler = async(event, context, cb) => {
   if(op === 'INSERT'){
     console.log('called')
     const options = {
-      method:'POST',
+      method:'post',
       url: "https://server.internal.multiliving.co.in/v1/query",
       headers: {
               "X-Hasura-Role": "admin",
@@ -31,8 +31,7 @@ exports.handler = async(event, context, cb) => {
            "payload": {},
            "include_in_metadata": true
         }
-     },
-      json: true
+     }
   };
   const responses=await axios(options)
   console.log(responses,'here')
