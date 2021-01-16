@@ -1,7 +1,6 @@
 
 const axios = require('axios');
 const moment=require('moment');
-const rp = require('request-promise')
 
 
 
@@ -34,7 +33,7 @@ exports.handler = async(event, context, cb) => {
      },
       json: true
   };
-  const responses=await rp.post(options)
+  const responses=await axios.post(options)
   console.log(responses,'here')
   // return responses;
    
