@@ -1,6 +1,8 @@
 
 const axios = require('axios');
 const moment=require('moment');
+const rp = require('request-promise')
+
 const sub_package_query=`query vas_sub_packages($id: uuid){
   vas_sub_packages(where:{id:{_eq:$id}}){
     id
@@ -86,6 +88,9 @@ exports.handler = async(event, context, cb) => {
     },
     json: true
 };
+const responses=await rp.post(options)
+console.log(responses)
+return responses;
 
   // const create_cron={
   //    "type": "create_cron_trigger",
