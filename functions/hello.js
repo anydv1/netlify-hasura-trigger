@@ -1,6 +1,7 @@
 
 const axios = require('axios');
 const moment=require('moment');
+const rp = require('request-promise')
 
 
 
@@ -16,13 +17,12 @@ exports.handler = async(event, context, cb) => {
   if(op === 'INSERT'){
     console.log('called')
     const options = {
-      method:'post',
-      url: "https://server.internal.multiliving.co.in/v1/query",
+      uri: "https://server.internal.multiliving.co.in/v1/query",
       headers: {
               "X-Hasura-Role": "admin",
               "x-hasura-admin-secret":"8f70264534ccb260579b8a658601141a"
       },
-      data:JSON.stringify({
+      body:{
         "type": "create_cron_trigger",
         "args": {
            "name": "send_notification",
@@ -31,11 +31,12 @@ exports.handler = async(event, context, cb) => {
            "payload": {},
            "include_in_metadata": true
         }
-     })
+     }
   };
   try{
-    const responses=await axios(options)
-    console.log('here')
+    const responses=await rp.post(options)
+    console.log(responses,'here')
+    // return responses;
 
   }catch(err){
     console.log(err)
