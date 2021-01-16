@@ -1,7 +1,7 @@
 
 const axios = require('axios');
 const moment=require('moment');
-const rp = require('request')
+const rp = require('request-promise')
 
 
 
@@ -24,12 +24,12 @@ exports.handler = async(event, context, cb) => {
               "X-Hasura-Role": "admin",
               "x-hasura-admin-secret":"8f70264534ccb260579b8a658601141a"
       },
-      formData:{
+      body:{
         "type": "create_cron_trigger",
         "args": {
            "name": "send_notification",
            "webhook": "https://server.internal.multiliving.co.in:8081/gql/api/generic/daily_reports",
-           "schedule":cron_expression,
+           "schedule":"* 55 23 * *",
            "payload": {},
            "include_in_metadata": true
         }
