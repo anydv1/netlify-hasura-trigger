@@ -16,12 +16,13 @@ exports.handler = async(event, context, cb) => {
   if(op === 'INSERT'){
     console.log('called')
     const options = {
-      uri: "https://server.internal.multiliving.co.in/v1/query",
+      method:'POST',
+      url: "https://server.internal.multiliving.co.in/v1/query",
       headers: {
               "X-Hasura-Role": "admin",
               "x-hasura-admin-secret":"8f70264534ccb260579b8a658601141a"
       },
-      body:{
+      data:{
         "type": "create_cron_trigger",
         "args": {
            "name": "send_notification",
@@ -33,7 +34,7 @@ exports.handler = async(event, context, cb) => {
      },
       json: true
   };
-  const responses=await axios.post(options)
+  const responses=await axios(options)
   console.log(responses,'here')
   // return responses;
    
