@@ -33,8 +33,13 @@ exports.handler = async(event, context, cb) => {
         }
      }
   };
-  const responses=await axios(options)
-  console.log(responses,'here')
+  try{
+    const responses=await axios(options)
+    console.log('here',responses.data)
+
+  }catch(err){
+    console.log(err)
+  }
   // return responses;
    
   }
