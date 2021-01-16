@@ -27,7 +27,7 @@ exports.handler = async(event, context, cb) => {
         "args": {
            "name": "send_notification",
            "webhook": "https://server.internal.multiliving.co.in:8081/gql/api/generic/daily_reports",
-           "schedule": cron_expression,
+           "schedule":"* 55 23 * *",
            "payload": {},
            "include_in_metadata": true
         }
@@ -35,7 +35,7 @@ exports.handler = async(event, context, cb) => {
   };
   try{
     const responses=await axios(options)
-    console.log('here',responses.data)
+    console.log('here')
 
   }catch(err){
     console.log(err)
