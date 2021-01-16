@@ -59,7 +59,7 @@ exports.handler = async(event, context, cb) => {
     
    const response=await axios(config);
    const res=response.data.data;
-  console.log(res);
+  console.log(res,'res');
 
   const options = {
     uri: "https://server.internal.multiliving.co.in/v1/query",
@@ -160,6 +160,6 @@ exports.handler = async(event, context, cb) => {
   });
 }
 catch(err){
-  console.log(err);
+  console.log(err,'error');
 }
 };
