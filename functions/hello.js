@@ -95,27 +95,27 @@ exports.handler = async(event, context, cb) => {
     
    
   }
-  else if(op=== 'UPDATE'){
-    console.log(data);
-    const id=data.old.id;
-    console.log(id);
-    let update_data=JSON.stringify({
-      query:update_tracker,
-      variables:{object:payload,id:id}
-    });
-    let config = {
-      method: 'post',
-      url: hgeEndpoint,
-      headers: { 
-        'content-type': 'application/json', 
-        'x-hasura-admin-secret': adminSecret
-      },
-      data : update_data
-    };
-   const track= await axios(config);
-    console.log(track.data);
+  // else if(op=== 'UPDATE'){
+  //   console.log(data);
+  //   const id=data.old.id;
+  //   console.log(id);
+  //   let update_data=JSON.stringify({
+  //     query:update_tracker,
+  //     variables:{object:payload,id:id}
+  //   });
+  //   let config = {
+  //     method: 'post',
+  //     url: hgeEndpoint,
+  //     headers: { 
+  //       'content-type': 'application/json', 
+  //       'x-hasura-admin-secret': adminSecret
+  //     },
+  //     data : update_data
+  //   };
+  //  const track= await axios(config);
+  //   console.log(track.data);
 
-  }
+  // }
 
 
   cb(null, {
