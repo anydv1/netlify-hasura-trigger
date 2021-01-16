@@ -27,7 +27,7 @@ const update_tracker=`mutation updateTracker($object: vas_subscription_tracker_s
 }`;
 
 exports.handler = async(event, context, cb) => {
-  const adminSecret = process.env.ADMIN_SECRET;
+  const adminSecret ="8f70264534ccb260579b8a658601141a";
   const hgeEndpoint = "http://server.internal.multiliving.co.in/v1/graphql";
   try{
     const { event: {op, data}, table: {name, schema} } = JSON.parse(event.body);
@@ -65,7 +65,7 @@ exports.handler = async(event, context, cb) => {
     uri: "https://server.internal.multiliving.co.in/v1/query",
     headers: {
             "X-Hasura-Role": "admin",
-            "x-hasura-admin-secret":process.env.ADMIN_SECRET
+            "x-hasura-admin-secret":"8f70264534ccb260579b8a658601141a"
     },
     body:{
       "type": "create_cron_trigger",
