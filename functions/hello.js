@@ -28,7 +28,7 @@ const update_tracker=`mutation updateTracker($object: vas_subscription_tracker_s
 
 exports.handler = async(event, context, cb) => {
   const adminSecret = process.env.ADMIN_SECRET;
-  const hgeEndpoint = process.env.hgeEndpoint;
+  const hgeEndpoint = "http://server.internal.multiliving.co.in/v1/graphql";
   try{
     const { event: {op, data}, table: {name, schema} } = JSON.parse(event.body);
   //const { event: {op, data}, table: {name, schema} } = event;
