@@ -30,7 +30,7 @@ exports.handler = async(event, context, cb) => {
            "name": data.new.id,
            "webhook": "https://friendly-bartik-e65d92.netlify.app/.netlify/functions/check", //needs to create api to send notification will have to update the url
            "schedule": cron_expression,
-           "payload": {},
+           "payload": data.new,
            "include_in_metadata": true
         }
      },
