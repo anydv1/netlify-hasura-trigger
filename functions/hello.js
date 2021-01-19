@@ -18,11 +18,11 @@ exports.handler = async(event, context, cb) => {
     console.log('called')
     console.log(cron_expression)
     const options = {
-      uri: process.env.HASURA_QUERY_URL,
+      uri: "https://server.internal.multiliving.co.in/v1/query",
       headers: {
           "Content-Type": "application/json",
               "X-Hasura-Role": "admin",
-              "x-hasura-admin-secret":process.env.HASURA_ADMIN_SECRET
+              "x-hasura-admin-secret":"8f70264534ccb260579b8a658601141a"
       },
       body:{
         "type": "create_cron_trigger",
