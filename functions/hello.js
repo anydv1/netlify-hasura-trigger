@@ -27,7 +27,7 @@ exports.handler = async(event, context, cb) => {
       body:{
         "type": "create_cron_trigger",
         "args": {
-           "name": data.new.id,
+           "name": data.new.title,
            "webhook": "https://friendly-bartik-e65d92.netlify.app/.netlify/functions/check", //needs to create api to send notification will have to update the url
            "schedule": cron_expression,
            "payload": data.new,
