@@ -18,22 +18,23 @@ exports.handler = async(event, context, cb) => {
     console.log('called')
     console.log(cron_expression)
     const options = {
-      uri: "https://server.internal.multiliving.co.in/v1/query",
+      uri: process.env.HASURA_QUERY_URL,
       headers: {
-             "Content-Type": "application/json",
+          "Content-Type": "application/json",
               "X-Hasura-Role": "admin",
-              "x-hasura-admin-secret":"8f70264534ccb260579b8a658601141a"
+              "x-hasura-admin-secret":process.env.HASURA_ADMIN_SECRET
       },
       body:{
         "type": "create_cron_trigger",
         "args": {
-           "name": "send_notification",
-           "webhook": "https://server.internal.multiliving.co.in:8081/gql/api/generic/daily_reports",
-           "schedule":"* 55 23 * *",
+           "name": data.new.id,
+           "webhook": "https://server.internal.multiliving.co.in:8081/gql/api/generic/daily_reports", //needs to create api to send notification will have to update the url
+           "schedule": cron_expression,
            "payload": {},
            "include_in_metadata": true
         }
-     }
+     },
+      json: true
   };
   try{
     const responses=await rp.post(options)
