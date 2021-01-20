@@ -3,18 +3,18 @@
 
 exports.handler = async(event, context, cb) => {
 console.log(event,'event')
-const user1=await hasuraClient.request(user(event.payload.query.trim()))
-       console.log(user1.users)
-        const users=user1.users;
+// const user1=await hasuraClient.request(user(event.payload.query.trim()))
+//        console.log(user1.users)
+//         const users=user1.users;
         switch(event.payload['notification_type']) {
             case "EMAIL":
 
-                users.forEach(async user => {
+                // users.forEach(async user => {
                     let email = 'anupama.yadav@doma.co.in';
                     let subject = event.payload['title'];
                     let body = event.payload['description'];
                     if (email !== null) await sendMail(email, subject, body);
-                })
+                // })
 
                 return res.status(200).json({status: true, schedulerId: req.params.id, message:"send email notification successfully"})
             
