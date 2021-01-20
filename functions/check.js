@@ -6,6 +6,7 @@ console.log(event,'event')
 // const user1=await hasuraClient.request(user(event.payload.query.trim()))
 //        console.log(user1.users)
 //         const users=user1.users;
+event=event.body;
         switch(event.payload['notification_type']) {
             case "EMAIL":
 
