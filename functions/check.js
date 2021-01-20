@@ -2,7 +2,7 @@
 
 
 exports.handler = async(event, context, cb) => {
-console.log(event,'event')
+console.log(event.body.payload,'event')
 // const user1=await hasuraClient.request(user(event.payload.query.trim()))
 //        console.log(user1.users)
 //         const users=user1.users;
