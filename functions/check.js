@@ -11,7 +11,7 @@ event=JSON.parse(event.body);
             case "EMAIL":
 
                 // users.forEach(async user => {
-                    let email = 'anupama.yadav@doma.co.in';
+                    let email = 'anupama.yadav@doma.co.in,manohar.chenna@doma.co.in';
                     let subject = event.payload['title'];
                     let body = event.payload['description'];
                     if (email !== null) await sendMail(email, subject, body);

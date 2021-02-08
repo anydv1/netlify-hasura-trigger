@@ -18,11 +18,11 @@ exports.handler = async(event, context, cb) => {
     console.log('called')
     console.log(cron_expression)
     const options = {
-      uri: "https://server.internal.multiliving.co.in/v1/query",
+      uri: "",
       headers: {
           "Content-Type": "application/json",
               "X-Hasura-Role": "admin",
-              "x-hasura-admin-secret":"8f70264534ccb260579b8a658601141a"
+              "x-hasura-admin-secret":""
       },
       body:{
         "type": "create_cron_trigger",
@@ -46,7 +46,8 @@ exports.handler = async(event, context, cb) => {
   }
   // return responses;
    
-  }
+  } 
+  if(op === 'UPDATE')
   cb(null, {
     statusCode: 200,
     body: "success"
